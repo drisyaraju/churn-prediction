@@ -1,0 +1,55 @@
+# Create .gitignore file
+cat > .gitignore << 'EOF'
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Kaggle
+.kaggle/
+kaggle.json
+
+# Data files (uncomment if you don't want to upload data)
+data/*.csv
+data/*.zip
+
+# Output files
+outputs/plots/*.png
+outputs/results/*.csv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Virtual Environment
+.venv/
+venv/
+ENV/
+EOF
