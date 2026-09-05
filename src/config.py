@@ -33,45 +33,61 @@ NUMERICAL_COLUMNS = ['tenure', 'MonthlyCharges', 'TotalCharges']
 TEST_SIZE = 0.2
 RANDOM_STATE = 42
 
-# Model hyperparameters
+# Model hyperparameters - UPDATED TO PREVENT OVERFITTING
 MODEL_PARAMS = {
     'logistic_regression': {
         'random_state': RANDOM_STATE,
         'max_iter': 1000,
-        'C': 1.0,
-        'class_weight': 'balanced'
+        'C': 0.1,  # Reduced regularization strength
+        'class_weight': 'balanced',
+        'penalty': 'l2'
     },
     'decision_tree': {
         'random_state': RANDOM_STATE,
-        'max_depth': 5,
-        'min_samples_split': 10,
+        'max_depth': 5,  # Limit tree depth
+        'min_samples_split': 20,  # Minimum samples to split
+        'min_samples_leaf': 10,  # Minimum samples in leaf
+        'max_features': 'sqrt',  # Consider subset of features
         'class_weight': 'balanced'
     },
     'random_forest': {
         'random_state': RANDOM_STATE,
         'n_estimators': 100,
-        'max_depth': 10,
-        'min_samples_split': 10,
-        'class_weight': 'balanced'
+        'max_depth': 8,  # Limit depth
+        'min_samples_split': 20,
+        'min_samples_leaf': 10,
+        'max_features': 'sqrt',
+        'class_weight': 'balanced',
+        'bootstrap': True,
+        'oob_score': True
     },
     'svm': {
         'random_state': RANDOM_STATE,
         'probability': True,
-        'C': 1.0,
+        'C': 0.5,  # Reduced C for regularization
         'kernel': 'rbf',
+        'gamma': 'scale',
         'class_weight': 'balanced'
     },
     'gradient_boosting': {
         'random_state': RANDOM_STATE,
         'n_estimators': 100,
-        'learning_rate': 0.1,
-        'max_depth': 3
+        'learning_rate': 0.05,  # Reduced learning rate
+        'max_depth': 3,
+        'min_samples_split': 20,
+        'min_samples_leaf': 10,
+        'subsample': 0.8  # Use 80% of samples per tree
     },
     'xgboost': {
         'random_state': RANDOM_STATE,
         'n_estimators': 100,
-        'learning_rate': 0.1,
-        'max_depth': 5,
+        'learning_rate': 0.05,
+        'max_depth': 4,
+        'min_child_weight': 3,
+        'subsample': 0.8,
+        'colsample_bytree': 0.8,
+        'reg_alpha': 0.1,  # L1 regularization
+        'reg_lambda': 1.0,  # L2 regularization
         'scale_pos_weight': 3
     }
 }
