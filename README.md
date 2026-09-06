@@ -1,6 +1,4 @@
-Here's a concise, professional README for GitHub:
 
-```markdown
 # Customer Churn Prediction
 
 Machine learning project to predict customer churn in a telecommunications company using demographic, service, and billing data.
@@ -95,14 +93,8 @@ python run_final.py
 - F1-Score
 - ROC-AUC
 
-## 📝 License
-
-MIT License
 
 ## 👤 Author
 
 **Drisya Raju**
 - GitHub: [@drisyaraju](https://github.com/drisyaraju)
-```
-
-Save this as `README.md` in your project root folder and push to GitHub.
