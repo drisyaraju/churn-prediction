@@ -32,13 +32,6 @@ wheels/
 .kaggle/
 kaggle.json
 
-# Data files (uncomment if you don't want to upload data)
-data/*.csv
-data/*.zip
-
-# Output files
-outputs/plots/*.png
-outputs/results/*.csv
 
 # IDE
 .vscode/
